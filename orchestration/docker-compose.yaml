@@ -1,0 +1,21 @@
+services:
+
+  gamer-dynamodb:
+    container_name: gamer-dynamodb
+    image: amazon/dynamodb-local
+    hostname: gamer-dynamodb
+    volumes:
+      - ./gamer-dynamodb-data:/home/dynamodblocal/data
+    ports:
+      - 8000:8000
+    networks:
+      - gamer
+    restart: unless-stopped
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data/"
+
+networks:
+  gamer:
+    driver: bridge
+
+volumes:
+  gamer-dynamodb:

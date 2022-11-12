@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: gamer
+
+  data:
+    dynamodb:
+      entity2ddl:
+        auto: create-drop
+        gsiProjectionType: ALL
+        readCapacity: 10
+        writeCapacity: 1
+
+amazon:
+  dynamodb:
+    endpoint: http://localhost:8000/
+  aws:
+    accesskey: key
+    secretkey: key2
